@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Rupesh Mishra | Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            font-family:'Poppins',sans-serif;
+            background:#0f172a;
+            color:#fff;
+            overflow-x:hidden;
+        }
+
+        img{
+            max-width:100%;
+            display:block;
+        }
+
+        a{
+            text-decoration:none;
+        }
+
+        /* =========================
+            NAVBAR
+        ========================= */
+
+        nav{
+            width:100%;
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:1000;
+            backdrop-filter:blur(12px);
+            background:rgba(15,23,42,0.85);
+            border-bottom:1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-container{
+            max-width:1200px;
+            margin:auto;
+            padding:18px 20px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+        }
+
+        .logo{
+            font-size:30px;
+            font-weight:700;
+            background:linear-gradient(90deg,#38bdf8,#a855f7);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+
+        .nav-links{
+            display:flex;
+            gap:25px;
+            list-style:none;
+            flex-wrap:wrap;
+        }
+
+        .nav-links a{
+            color:#e2e8f0;
+            font-weight:500;
+            transition:.3s;
+        }
+
+        .nav-links a:hover{
+            color:#38bdf8;
+        }
+
+        /* =========================
+            HERO
+        ========================= */
+
+        .hero{
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:140px 20px 80px;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .hero::before{
+            content:'';
+            position:absolute;
+            width:600px;
+            height:600px;
+            background:#7c3aed;
+            border-radius:50%;
+            top:-200px;
+            right:-150px;
+            filter:blur(120px);
+            opacity:.35;
+        }
+
+        .hero::after{
+            content:'';
+            position:absolute;
+            width:500px;
+            height:500px;
+            background:#06b6d4;
+            border-radius:50%;
+            bottom:-200px;
+            left:-100px;
+            filter:blur(120px);
+            opacity:.25;
+        }
+
+        .hero-container{
+            max-width:1200px;
+            width:100%;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+            align-items:center;
+            gap:60px;
+            position:relative;
+            z-index:1;
+        }
+
+        .profile-image{
+            text-align:center;
+        }
+
+        .profile-image img{
+            width:340px;
+            height:340px;
+            object-fit:cover;
+            border-radius:50%;
+            margin:auto;
+            border:8px solid rgba(255,255,255,0.1);
+            box-shadow:
+                0 0 40px rgba(56,189,248,0.4),
+                0 0 80px rgba(168,85,247,0.3);
+        }
+
+        .hero-content h1{
+            font-size:64px;
+            line-height:1.2;
+            margin-bottom:15px;
+        }
+
+        .hero-content h2{
+            font-size:32px;
+            color:#38bdf8;
+            margin-bottom:20px;
+        }
+
+        .hero-content p{
+            font-size:18px;
+            line-height:1.9;
+            color:#cbd5e1;
+            margin-bottom:35px;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:15px 38px;
+            background:linear-gradient(90deg,#38bdf8,#8b5cf6);
+            color:#fff;
+            border-radius:50px;
+            font-weight:600;
+            transition:.4s;
+            box-shadow:0 10px 30px rgba(56,189,248,0.3);
+        }
+
+        .btn:hover{
+            transform:translateY(-5px) scale(1.03);
+        }
+
+        /* =========================
+            SECTION COMMON
+        ========================= */
+
+        section{
+            padding:100px 20px;
+        }
+
+        .container{
+            max-width:1200px;
+            margin:auto;
+        }
+
+        .section-title{
+            text-align:center;
+            font-size:46px;
+            margin-bottom:70px;
+            position:relative;
+        }
+
+        .section-title::after{
+            content:'';
+            width:90px;
+            height:5px;
+            background:linear-gradient(90deg,#38bdf8,#a855f7);
+            position:absolute;
+            left:50%;
+            transform:translateX(-50%);
+            bottom:-15px;
+            border-radius:10px;
+        }
+
+        /* =========================
+            GLASS CARD
+        ========================= */
+
+        .glass-card{
+            background:rgba(255,255,255,0.06);
+            border:1px solid rgba(255,255,255,0.1);
+            backdrop-filter:blur(15px);
+            border-radius:25px;
+            box-shadow:0 10px 40px rgba(0,0,0,0.25);
+        }
+
+        /* =========================
+            ABOUT
+        ========================= */
+
+        .about-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+            gap:40px;
+            align-items:center;
+        }
+
+        .about-grid img{
+            border-radius:25px;
+        }
+
+        .about-text{
+            padding:40px;
+        }
+
+        .about-text p{
+            color:#cbd5e1;
+            line-height:1.9;
+            margin-bottom:20px;
+        }
+
+        /* =========================
+            SKILLS
+        ========================= */
+
+        .skills-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+            gap:25px;
+        }
+
+        .skill-card{
+            padding:35px 25px;
+            text-align:center;
+            transition:.4s;
+        }
+
+        .skill-card:hover{
+            transform:translateY(-10px);
+            border-color:#38bdf8;
+        }
+
+        .skill-card h3{
+            margin-bottom:15px;
+            color:#38bdf8;
+        }
+
+        .skill-card p{
+            color:#cbd5e1;
+            line-height:1.8;
+        }
+
+        /* =========================
+            PROJECTS
+        ========================= */
+
+        .projects-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:30px;
+        }
+
+        .project-card{
+            overflow:hidden;
+            transition:.4s;
+        }
+
+        .project-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .project-content{
+            padding:30px;
+        }
+
+        .project-content h3{
+            margin-bottom:15px;
+            color:#38bdf8;
+        }
+
+        .project-content p{
+            color:#cbd5e1;
+            line-height:1.8;
+        }
+
+        /* =========================
+            EXPERIENCE
+        ========================= */
+
+        .experience-box{
+            padding:40px;
+        }
+
+        .experience-box h3{
+            color:#38bdf8;
+            margin-bottom:15px;
+        }
+
+        .experience-box p{
+            color:#cbd5e1;
+            line-height:1.9;
+        }
+
+        /* =========================
+            CONTACT
+        ========================= */
+
+        .contact-box{
+            padding:40px;
+            text-align:center;
+        }
+
+        .contact-box p{
+            margin:14px 0;
+            color:#cbd5e1;
+            font-size:18px;
+        }
+
+        /* =========================
+            FOOTER
+        ========================= */
+
+        footer{
+            text-align:center;
+            padding:30px 20px;
+            color:#94a3b8;
+            border-top:1px solid rgba(255,255,255,0.08);
+        }
+
+        /* =========================
+            RESPONSIVE
+        ========================= */
+
+        @media(max-width:992px){
+
+            .hero-content{
+                text-align:center;
+            }
+
+            .hero-content h1{
+                font-size:50px;
+            }
+
+            .hero-content h2{
+                font-size:28px;
+            }
+        }
+
+        @media(max-width:768px){
+
+            .nav-container{
+                justify-content:center;
+                gap:15px;
+            }
+
+            .nav-links{
+                justify-content:center;
+            }
+
+            .hero{
+                padding-top:180px;
+                text-align:center;
+            }
+
+            .profile-image img{
+                width:240px;
+                height:240px;
+            }
+
+            .hero-content h1{
+                font-size:40px;
+            }
+
+            .hero-content h2{
+                font-size:24px;
+            }
+
+            .hero-content p{
+                font-size:16px;
+            }
+
+            .section-title{
+                font-size:34px;
+            }
+
+            section{
+                padding:80px 20px;
+            }
+        }
+
+        @media(max-width:480px){
+
+            .hero-content h1{
+                font-size:32px;
+            }
+
+            .hero-content h2{
+                font-size:20px;
+            }
+
+            .btn{
+                width:100%;
+                text-align:center;
+            }
+
+            .nav-links{
+                gap:12px;
+            }
+
+            .nav-links a{
+                font-size:14px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="nav-container">
+
+            <div class="logo">
+                Rupesh
+            </div>
+
+            <ul class="nav-links">
+
+                <li><a href="#home">Home</a></li>
+
+                <li><a href="#about">About</a></li>
+
+                <li><a href="#skills">Skills</a></li>
+
+                <li><a href="#projects">Projects</a></li>
+
+                <li><a href="#experience">Experience</a></li>
+
+                <li><a href="#contact">Contact</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-container">
+
+            <div class="profile-image">
+
+                <img src="images/profile.jfif" alt="Rupesh Mishra">
+
+            </div>
+
+            <div class="hero-content">
+
+                <h1>Rupesh Mishra</h1>
+
+                <h2>.NET Full Stack Developer</h2>
+
+                <p>
+                    Professional developer experienced in ASP.NET Core,
+                    WPF Applications, SQL Server, PostgreSQL,
+                    enterprise systems, analytics platforms,
+                    HRMS software, and AI-based solutions.
+                </p>
+
+                <a href="#contact" class="btn">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                About Me
+            </h2>
+
+            <div class="about-grid">
+
+               <img 
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" 
+                alt="Developer Workspace"
+            >
+
+                <div class="about-text glass-card">
+
+                    <p>
+                        I am a passionate .NET Full Stack Developer
+                        with experience from April 2023 to Present.
+                    </p>
+
+                    <p>
+                        I specialize in ASP.NET Core MVC,
+                        WPF Desktop Applications,
+                        SQL Server, PostgreSQL,
+                        Bootstrap, and enterprise application development.
+                    </p>
+
+                    <p>
+                        I have worked on Financial Analysis Tools,
+                        Instack Analytics Systems,
+                        HRMS platforms,
+                        ACO Case Management Systems,
+                        and Deep Fake Detection projects.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Technical Skills
+            </h2>
+
+            <div class="skills-grid">
+
+                <div class="skill-card glass-card">
+                    <h3>ASP.NET Core MVC</h3>
+                    <p>Enterprise web application development.</p>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <h3>C# & .NET</h3>
+                    <p>Backend logic and software architecture.</p>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <h3>WPF Applications</h3>
+                    <p>Modern desktop application development.</p>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <h3>SQL Server</h3>
+                    <p>Database design and optimization.</p>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <h3>PostgreSQL</h3>
+                    <p>Advanced relational database management.</p>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <h3>Bootstrap & UI</h3>
+                    <p>Responsive and stylish frontend design.</p>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <h3>JavaScript & jQuery</h3>
+                    <p>Interactive frontend development.</p>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <h3>Entity Framework Core</h3>
+                    <p>ORM and LINQ query development.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Projects
+            </h2>
+
+            <div class="projects-grid">
+
+                <div class="project-card glass-card">
+
+                    <div class="project-content">
+
+                        <h3>Instack Analytics Tool</h3>
+
+                        <p>
+                            Analytics and monitoring platform
+                            with advanced dashboard reporting.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="project-card glass-card">
+
+                    <div class="project-content">
+
+                        <h3>Financial Analysis Tool</h3>
+
+                        <p>
+                            Web and WPF-based financial
+                            reporting and analytics software.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="project-card glass-card">
+
+                    <div class="project-content">
+
+                        <h3>ACO Case Management</h3>
+
+                        <p>
+                            Enterprise workflow and case
+                            tracking management solution.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="project-card glass-card">
+
+                    <div class="project-content">
+
+                        <h3>HRMS System</h3>
+
+                        <p>
+                            Human resource platform with
+                            employee and administration modules.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="project-card glass-card">
+
+                    <div class="project-content">
+
+                        <h3>Deep Fake Detection</h3>
+
+                        <p>
+                            AI-powered manipulated media
+                            detection and analysis system.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- EXPERIENCE -->
+
+    <section id="experience">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Experience
+            </h2>
+
+            <div class="experience-box glass-card">
+
+                <h3>.NET Full Stack Developer</h3>
+
+                <p>
+                    <strong>Company:</strong> Fact Finding Tech
+                </p>
+
+                <p>
+                    <strong>Duration:</strong> April 2023 - Present
+                </p>
+
+                <br>
+
+                <p>
+                    Working on enterprise applications,
+                    analytics systems, HRMS platforms,
+                    financial tools, WPF applications,
+                    and case management solutions
+                    using ASP.NET Core, SQL Server,
+                    PostgreSQL, and modern technologies.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Contact Me
+            </h2>
+
+            <div class="contact-box glass-card">
+
+                <p><strong>Name:</strong> Rupesh Mishra</p>
+
+                <p><strong>Email:</strong> rupeshmishra631@gmail.com</p>
+
+                <p><strong>Role:</strong> .NET Full Stack Developer</p>
+
+                <p><strong>Location:</strong> Lucknow, India</p>
+
+                <p><strong>Experience:</strong> April 2023 - Present</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Rupesh Mishra | Professional Portfolio
+
+    </footer>
+
+</body>
+</html>
